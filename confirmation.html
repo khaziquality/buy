@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Center content vertically and horizontally */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://raw.githubusercontent.com/GagosideForMayor/webhook-testing/main/confirmpage.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        /* Style the main content */
+        .content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 style="color: #F8F8FF;">Order submitted successfully!</h1>
+        <p style="color: #D3D3D3;">Thank you for your purchase. Your order has been received and will be processed shortly.</p>
+        <p style="color: #D3D3D3;">If you have any questions, concerns, or additional information, we will be more than happy to help you!</p>
+        <br>
+        <br>
+        <p style="color: #F5F5F5;">Contact pooboy#4062 on Discord or WETHEBESTMUSIC for customer support.</p>
+        <br>
+        <div id="purchase-details">
+            <h2 style="color: #D3D3D3;">Your Purchase Details:</h2>
+            <p id="product" style="color: #A9A9A9;">Product: </p>
+            <p id="quantity" style="color: #A9A9A9;">Quantity: </p>
+            <p id="product2" style="color: #A9A9A9;">Product 2: </p>
+            <p id="quantity2" style="color: #A9A9A9;">Quantity 2: </p>
+            <p id="product3" style="color: #A9A9A9;">Product 3: </p>
+            <p id="quantity3" style="color: #A9A9A9;">Quantity 3: </p>
+            <p id="discordUsername" style="color: #C0C0C0;">Discord Username: </p>
+            <p id="robloxUsername" style="color: #C0C0C0;">Roblox Username: </p>
+        </div>
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get("product");
+            const quantity = urlParams.get("quantity");
+            const product2 = urlParams.get("product2");
+            const quantity2 = urlParams.get("quantity2");
+            const product3 = urlParams.get("product3");
+            const quantity3 = urlParams.get("quantity3");
+            const discordUsername = urlParams.get("discordUsername");
+            const robloxUsername = urlParams.get("robloxUsername");
+
+            // Set the purchase details
+            document.getElementById("product").textContent = `Product 1: ${product}`;
+            document.getElementById("quantity").textContent = `Quantity 1: ${quantity}`;
+            document.getElementById("product2").textContent = `Product 2: ${product2}`;
+            document.getElementById("quantity2").textContent = `Quantity 2: ${quantity2}`;
+            document.getElementById("product3").textContent = `Product 3: ${product3}`;
+            document.getElementById("quantity3").textContent = `Quantity 3: ${quantity3}`;
+            document.getElementById("discordUsername").textContent = `Discord Username: ${discordUsername}`;
+            document.getElementById("robloxUsername").textContent = `Roblox Username: ${robloxUsername}`;
+
+            // Clear the purchase data from local storage
+            localStorage.removeItem("purchaseHistory");
+        </script>
+    </div>
+</body>
+</html>
